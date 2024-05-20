@@ -1,0 +1,16 @@
+[core]
+	autocrlf = input
+[user]
+	email = 63203762+BenHiramTaylor@users.noreply.github.com
+	name = Ben Taylor
+[pull]
+	rebase = false
+[push]
+	autoSetupRemote = true
+[url "git@github.com-Personal:BenHiramTaylor/"]
+    insteadOf = git@github.com:BenHiramTaylor/
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
