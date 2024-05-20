@@ -1,5 +1,8 @@
-# Find all subdirectories in the current directory
-DIRS := $(shell find . -mindepth 1 -maxdepth 1 -type d -exec basename {} \;)
+# Read ignore patterns from .stow-local-ignore and format them for grep
+IGNORE_PATTERNS := $(shell cat .stow-local-ignore | sed 's/^/-e /' | tr '\n' ' ')
+
+# Find all subdirectories in the current directory and filter out ignored ones
+DIRS := $(shell find . -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | grep -v $(IGNORE_PATTERNS))
 
 # Default target
 all: stow_all
