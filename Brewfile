@@ -1,4 +1,3 @@
-tap "azure/functions"
 tap "homebrew/bundle"
 tap "idoavrah/homebrew"
 
