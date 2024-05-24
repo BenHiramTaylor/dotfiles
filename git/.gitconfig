@@ -7,8 +7,6 @@
 	rebase = false
 [push]
 	autoSetupRemote = true
-[url "git@github.com-Personal:BenHiramTaylor/"]
-    insteadOf = git@github.com:BenHiramTaylor/
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
