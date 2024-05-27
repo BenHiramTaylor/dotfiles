@@ -1,0 +1,21 @@
+layout {
+    tab name="Python" focus=true hide_floating_panes=true {
+        pane split_direction="vertical" {
+            pane size="60%" command="lazygit" {}
+            pane split_direction="horizontal" size="40%" {
+                pane command="ruff" {
+                    args "."
+                    start_suspended true
+                }
+                pane command="black" {
+                    args "."
+                    start_suspended true
+                }
+            }
+        }
+        
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+}
