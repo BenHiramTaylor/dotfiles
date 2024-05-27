@@ -1,0 +1,27 @@
+layout {
+    tab name="Rusty" focus=true hide_floating_panes=true {
+        pane split_direction="vertical" {
+            pane size="15%"  {
+                plugin location="zellij:strider"
+            }
+            pane split_direction="horizontal" size="85%"{
+                pane focus=true command="cargo" {
+                    args "check"
+                    start_suspended true
+                }
+                pane focus=true command="cargo" {
+                    args "test"
+                    start_suspended true
+                }
+                pane focus=true command="cargo" {
+                    args "run"
+                    start_suspended true
+                }
+            }
+        }
+        
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+}
