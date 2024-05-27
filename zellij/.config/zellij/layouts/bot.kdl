@@ -1,0 +1,20 @@
+layout {
+    tab name="Bot" focus=true hide_floating_panes=true {
+        pane
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+    tab name="Logs" hide_floating_panes=true {
+        pane
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+    new_tab_template {
+        pane
+        pane size=1 borderless=true {
+            plugin location="compact-bar"
+        }
+    }
+}
