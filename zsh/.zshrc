@@ -64,9 +64,10 @@ eval "$(zoxide init --cmd cd zsh)"
 # Load starship prompt
 eval "$(starship init zsh)"
 
-# Pyenv Config
+# Python Config
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="/$HOME/.local/bin:$PATH"
 eval "$(pyenv init --path)"
 
 # Go Config
