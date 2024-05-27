@@ -21,6 +21,7 @@ zinit light Aloxaf/fzf-tab
 
 # Add in snippets
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::poetry-env
 
 # Load completions
 autoload -Uz compinit && compinit
