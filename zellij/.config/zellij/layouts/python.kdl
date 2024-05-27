@@ -4,7 +4,7 @@ layout {
             pane size="60%" command="lazygit" {}
             pane split_direction="horizontal" size="40%" {
                 pane command="ruff" {
-                    args "."
+                    args "check" "."
                     start_suspended true
                 }
                 pane command="black" {
