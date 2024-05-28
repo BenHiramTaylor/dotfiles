@@ -1,0 +1,14 @@
+import = ["~/.config/alacritty/catppuccin-frappe.toml"]
+
+[window]
+decorations = "buttonless"
+option_as_alt = "Both"
+blur = true
+opacity = 0.85
+padding = { x = 10, y = 10 }
+
+[font]
+normal = { family = "JetBrains Mono", style = "Regular" }
+bold = { family = "JetBrains Mono", style = "Bold" }
+italic = { family = "JetBrains Mono", style = "Italic" }
+size = 13
