@@ -72,9 +72,10 @@ export PATH="/$HOME/.local/bin:$PATH"
 eval "$(pyenv init --path)"
 
 # Go Config
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin
+export GOROOT="/usr/local/go"
+export GOPATH="$HOME/go"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$GOPATH/bin"
 
 # Rust Config
 export PATH="$HOME/.cargo/bin:$PATH"
