@@ -78,3 +78,6 @@ export PATH=$PATH:/usr/local/go/bin
 
 # Rust Config
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Jetbrains Path
+export PATH="/$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
