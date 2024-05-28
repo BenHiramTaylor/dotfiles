@@ -4,6 +4,8 @@
 # Don't insert a blank line between shell prompts
 add_newline = false
 
+right_format = "$kubernetes"
+
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
@@ -22,6 +24,7 @@ format = '([\[$ahead_behind\]]($style) )'
 
 [kubernetes]
 disabled = false
+format = ' in [$symbol$context( \($namespace\))]($style) '
 
 [username]
 disabled = true
