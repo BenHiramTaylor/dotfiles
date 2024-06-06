@@ -29,4 +29,5 @@ hide_when_typing = true
 bindings = [
     { key = "Right", mods = "Alt", chars = "\u001BF" },
     { key = "Left", mods = "Alt", chars = "\u001BB" },
+    { key = "M", mods = "Command", action = "ToggleFullscreen" },
 ]
