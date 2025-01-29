@@ -1,6 +1,5 @@
-import = ["~/.config/alacritty/catppuccin-frappe.toml"]
-
-live_config_reload = true
+[general]
+import = ["./catppuccin-frappe.toml"]
 
 [window]
 decorations = "buttonless"
@@ -17,7 +16,7 @@ multiplier = 3
 normal = { family = "FiraCode Nerd Font", style = "Regular" }
 bold = { family = "FiraCode Nerd Font", style = "Bold" }
 italic = { family = "FiraCode Nerd Font", style = "Italic" }
-size = 13
+size = 8
 
 [selection]
 save_to_clipboard = true
