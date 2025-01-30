@@ -53,6 +53,8 @@
       starship
       eza
       watch
+      fzf
+      zoxide
 
       # Applications
       _1password-gui
