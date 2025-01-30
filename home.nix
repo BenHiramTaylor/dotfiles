@@ -13,6 +13,8 @@
       ## IDEs
       vscode
       jetbrains.rust-rover
+      jetbrains.goland
+      jetbrains.pycharm-professional
 
       # Python
       python311
