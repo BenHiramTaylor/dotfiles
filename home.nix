@@ -54,6 +54,7 @@
       eza
       watch
       fzf
+      zsh-fzf-tab
       zoxide
 
       # Applications
@@ -129,36 +130,80 @@
         --color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
         --color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
 
-        # Keybindings
+        # Zinit installation and setup
+        ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
+        [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+        [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+        source "''${ZINIT_HOME}/zinit.zsh"
+
+        # Zinit plugins
+        zinit light zsh-users/zsh-syntax-highlighting
+        zinit light zsh-users/zsh-completions
+        zinit light zsh-users/zsh-autosuggestions
+        zinit light Aloxaf/fzf-tab
+        zinit snippet OMZP::command-not-found
+        # Load completions
+        autoload -Uz compinit && compinit
+
+        zinit cdreplay -q
+
+        # Enhanced keybindings
         bindkey -e
-        bindkey '\e[A' history-search-backward # Mac Up Key
-        bindkey '^p' history-search-backward # Linux Up Key
-        bindkey '\e[B' history-search-forward # Mac Down Key
-        bindkey '^n' history-search-forward # Mac Down Key
+        bindkey '\e[A' history-search-backward
+        bindkey '^p' history-search-backward
+        bindkey '\e[B' history-search-forward
+        bindkey '^n' history-search-forward
         bindkey '^[w' kill-region
 
-        # Completion styling
-        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+        # FZF-tab styling
+        zstyle ':completion:*:descriptions' format '[%d]'
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
         zstyle ':completion:*' menu no
-        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-        zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+        # FZF-tab preview configuration
+        zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $realpath'
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+        zstyle ':fzf-tab:complete:ls:*' fzf-preview 'cat $realpath'
+        zstyle ':fzf-tab:*' switch-group '<' '>'
+
+        # Shell integrations
+        eval "$(fzf --zsh)"
+        eval "$(zoxide init --cmd cd zsh)"
 
         # Load starship prompt
         eval "$(starship init zsh)"
       '';
     };
 
-    # Zoxide & FZF configuration
+    # Enhanced FZF configuration
     fzf = {
       enable = true;
       enableZshIntegration = true;
+      defaultOptions = [
+        "--color=bg+:#414559"
+        "--color=bg:#303446"
+        "--color=spinner:#f2d5cf"
+        "--color=hl:#e78284"
+        "--color=fg:#c6d0f5"
+        "--color=header:#e78284"
+        "--color=info:#ca9ee6"
+        "--color=pointer:#f2d5cf"
+        "--color=marker:#f2d5cf"
+        "--color=fg+:#c6d0f5"
+        "--color=prompt:#ca9ee6"
+        "--color=hl+:#e78284"
+      ];
     };
 
+    # Enhanced zoxide configuration
     zoxide = {
       enable = true;
       enableZshIntegration = true;
-      options = [ "--cmd cd" ];
+      options = [
+        "--cmd"
+        "cd"
+      ];
     };
   };
 }
