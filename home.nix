@@ -80,7 +80,9 @@
 
   # Program configurations
   programs = {
-    home-manager.enable = true;
+    home-manager = {
+      enable = true;
+    };
 
     # Git configuration
     git = {
