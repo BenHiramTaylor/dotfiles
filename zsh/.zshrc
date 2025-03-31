@@ -72,12 +72,6 @@ eval "$(zoxide init --cmd cd zsh)"
 # Load starship prompt
 eval "$(starship init zsh)"
 
-# Python Config
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="/$HOME/.local/bin:$PATH"
-eval "$(pyenv init --path)"
-
 # Go Config
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/go"
@@ -89,3 +83,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Jetbrains Path
 export PATH="/$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
+. "$HOME/.local/share/../bin/env"
+
+# UV
+eval "$(uv generate-shell-completion zsh)"
