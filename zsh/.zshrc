@@ -66,7 +66,7 @@ alias ls='ls -la --color'
 alias c='clear'
 
 # Shell integrations
-eval "$(fzf --zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init --cmd cd zsh)"
 
 # Load starship prompt
