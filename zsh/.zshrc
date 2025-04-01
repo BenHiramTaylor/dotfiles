@@ -67,7 +67,7 @@ alias c='clear'
 
 # Shell integrations
 source <(fzf --zsh)
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 
 # Load starship prompt
 eval "$(starship init zsh)"
